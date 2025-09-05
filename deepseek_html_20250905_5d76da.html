@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensaje Inspirador</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+            padding: 40px;
+            width: 90%;
+            max-width: 700px;
+            text-align: center;
+            transition: all 0.5s ease;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease;
+        }
+        
+        .subtitle {
+            color: #34495e;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+        
+        .input-container {
+            margin: 30px 0;
+        }
+        
+        input {
+            padding: 15px 25px;
+            width: 80%;
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            transition: all 0.3s;
+            outline: none;
+            text-align: center;
+        }
+        
+        input:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 15px rgba(52, 152, 219, 0.5);
+        }
+        
+        button {
+            background: linear-gradient(to right, #3498db, #2c3e50);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 20px rgba(52, 152, 219, 0.6);
+            letter-spacing: 1px;
+        }
+        
+        button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.8);
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .message-container {
+            background: linear-gradient(to bottom right, #f9f9f9, #eef2f7);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+        }
+        
+        .message-title {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+        
+        .message-content {
+            font-size: 1.8rem;
+            color: #2980b9;
+            font-weight: bold;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: rgba(236, 240, 241, 0.7);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .verse {
+            font-style: italic;
+            color: #7f8c8d;
+            font-size: 1.3rem;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px dashed #bdc3c7;
+            line-height: 1.6;
+        }
+        
+        .reference {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1.3rem;
+            }
+            
+            input {
+                width: 90%;
+                font-size: 1rem;
+            }
+            
+            .message-content {
+                font-size: 1.5rem;
+                padding: 15px;
+            }
+            
+            .verse {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 25px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            input {
+                width: 100%;
+                padding: 12px 20px;
+            }
+            
+            button {
+                padding: 12px 30px;
+                font-size: 1.1rem;
+            }
+            
+            .message-content {
+                font-size: 1.3rem;
+            }
+            
+            .verse {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="intro">
+            <h1>Bienvenido</h1>
+            <p class="subtitle">Ey introduce tu nombre :)</p>
+            <div class="input-container">
+                <input type="text" id="userName" placeholder="Escribe tu nombre aquí">
+            </div>
+            <button onclick="showMessage()" class="pulse">Continuar</button>
+        </div>
+        
+        <div id="message" class="hidden">
+            <h2 class="message-title">El Señor hoy te dice:</h2>
+            <p class="message-content" id="personalMessage"></p>
+            <div class="verse">
+                "No temas, porque yo estoy contigo; no desmayes, porque yo soy tu Dios que te esfuerzo; siempre te ayudaré, siempre te sustentaré con la diestra de mi justicia."
+                <span class="reference">Isaías 41:10 RVR1960</span>
+            </div>
+            <button onclick="goBack()" style="margin-top: 30px;">Volver atrás</button>
+        </div>
+    </div>
+
+    <script>
+        function showMessage() {
+            const userName = document.getElementById('userName').value.trim();
+            
+            // Si no se ingresó nombre, usar "amigo"
+            const displayName = userName || "amigo";
+            
+            // Personalizar el mensaje
+            document.getElementById('personalMessage').innerHTML = 
+                `“No temas, <span style="color: #e74c3c;">${displayName}</span>, porque Yo estoy contigo. Aunque sientas que tus fuerzas se acaban, no te soltaré. Nunca te dejaré solo, Mi mano te sostiene siempre. Confía, porque Yo soy tu Dios y jamás te abandonaré.”`;
+            
+            // Ocultar introducción y mostrar mensaje
+            document.getElementById('intro').classList.add('hidden');
+            document.getElementById('message').classList.remove('hidden');
+        }
+        
+        function goBack() {
+            // Mostrar introducción y ocultar mensaje
+            document.getElementById('message').classList.add('hidden');
+            document.getElementById('intro').classList.remove('hidden');
+            
+            // Limpiar el campo de nombre
+            document.getElementById('userName').value = "";
+            
+            // Poner el foco en el campo de nombre
+            document.getElementById('userName').focus();
+        }
+        
+        // Permitir enviar con la tecla Enter
+        document.getElementById('userName').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                showMessage();
+            }
+        });
+        
+        // Poner el foco en el campo de nombre al cargar la página
+        window.onload = function() {
+            document.getElementById('userName').focus();
+        }
+    </script>
+</body>
+</html>
